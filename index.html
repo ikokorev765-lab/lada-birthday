@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f8df9a">
+  <title>Ромашковая долина — для Лады</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+    <div class="sky-decoration cloud cloud-1"></div>
+    <div class="sky-decoration cloud cloud-2"></div>
+    <div class="sun"></div>
+
+    <section class="screen active" id="welcome">
+      <div class="hero-card">
+        <div class="flower-row">🌼 🌼 🌼</div>
+        <p class="eyebrow">Секретное поздравление</p>
+        <h1>Ромашковая<br><span>долина</span></h1>
+        <p class="subtitle">Сегодня здесь происходит что-то необычное…</p>
+        <button class="heart-button" id="heartBtn" aria-label="Начать">
+          <span>♥</span>
+        </button>
+        <p class="hint">Нажми на сердечко</p>
+      </div>
+    </section>
+
+    <section class="screen" id="password">
+      <div class="paper-card">
+        <div class="tiny-flower">🌼</div>
+        <p class="eyebrow">Секретный вход</p>
+        <h2>Кажется, здесь<br>что-то спрятано…</h2>
+        <p>Чтобы попасть дальше, нужен секретный код.</p>
+        <input id="passwordInput" type="text" inputmode="text" autocomplete="off"
+               placeholder="Введи код">
+        <button class="primary" id="passwordBtn">Открыть долину →</button>
+        <p class="error" id="passwordError"></p>
+        <p class="small-hint">Подсказка: он связан с сегодняшним днём 👀</p>
+      </div>
+    </section>
+
+    <section class="screen" id="intro">
+      <div class="scene-card">
+        <div class="scene-title">🌼 Ромашковая долина 🌼</div>
+        <div class="mini-landscape">
+          <div class="hill hill-back"></div>
+          <div class="hill hill-front"></div>
+          <div class="flower f1">🌼</div>
+          <div class="flower f2">🌼</div>
+          <div class="flower f3">🌼</div>
+          <div class="flower f4">🌼</div>
+        </div>
+        <h2>Добро пожаловать, Лада!</h2>
+        <p>
+          Кажется, жители долины уже узнали, какой сегодня день…
+          И они приготовили для тебя кое-что особенное.
+        </p>
+        <p class="bold">Но есть одна маленькая проблема.</p>
+        <p>Никто не подписал свои поздравления. Придётся самой догадаться, кто их написал! 👀</p>
+        <button class="primary" id="startQuizBtn">Послушать поздравления →</button>
+      </div>
+    </section>
+
+    <section class="screen" id="quiz">
+      <div class="quiz-card">
+        <div class="progress" id="progress"></div>
+        <p class="eyebrow" id="quizNumber">Поздравление №1</p>
+        <div class="quote" id="quote"></div>
+        <p class="question">Кто это написал?</p>
+        <div class="answers" id="answers"></div>
+        <p class="feedback" id="feedback"></p>
+        <button class="primary hidden" id="nextBtn">Следующее поздравление →</button>
+      </div>
+    </section>
+
+    <section class="screen" id="score">
+      <div class="paper-card">
+        <div class="score-flower">🌼</div>
+        <p class="eyebrow">Результат</p>
+        <h2 id="scoreTitle"></h2>
+        <p id="scoreText"></p>
+        <div class="flowers" id="flowers"></div>
+        <button class="primary" id="finalBtn">Открыть последнее поздравление →</button>
+      </div>
+    </section>
+
+    <section class="screen" id="final">
+      <div class="final-card">
+        <p class="eyebrow">Последнее письмо из Ромашковой долины</p>
+        <h2>Дорогая моя Лада…</h2>
+        <div class="final-text">
+          <p>Я поздравляю тебя с днём рождения!!</p>
+          <p>Это уже третий раз, когда я тебя поздравляю с твоим супер-пупер днём, и с каждым разом я всё лучше понимаю, насколько ты прекрасный человечек. Я тебя очень-очень сильно люблю!!</p>
+          <p>Ты наполняешь мою жизнь своей нежной энергией, теплом, уютом. Твоя поддержка очень ценна, и твои близкие могут быть уверены, что ты им поможешь и поддержишь в нужную минуту.</p>
+          <p>В тебе столько позитива, добра, искренности. Ты, мне кажется, самый добрый человек, которого я знаю, поэтому мне не страшно проявлять перед тобой какие-то эмоции и показывать свои слабости, потому что я знаю, что ты всегда поддержишь и примешь меня без осуждения!!</p>
+          <p>Ты всегда была моей опорой и поддержкой, делаешь мою жизнь проще и позитивнее. Даже в самые пасмурные и тёмные дни с тобой светло и тепло. 💗</p>
+          <p>И наконец-то наступил твой день рождения, когда все твои близкие и те, кого ты знаешь, будут отдавать тебе любовь, тепло и заботу обратно. Желаю тебе насладиться этим и запитаться позитивной энергией на год вперёд.</p>
+          <p>Я так это восторженно говорю, потому что сам постоянно ценю твою улыбку, твои позитивные эмоции, потому что твоя улыбка самая тёплая, добрая, милая и самая-самая красивая!! 🥰</p>
+          <p>Желаю тебе развиваться в своей профессиональной деятельности. Надеюсь, у тебя всё-всё получится в выбранном тобой деле. Мы все в тебя верим, у тебя и так прекрасно всё получается, поэтому тебе будет совсем не сложно развиваться в этом дальше. С нас поддержка. ❤️</p>
+          <p>Желаю тебе также быть счастливой. Ты так много всем отдаёшь, не забывай о себе, радуй себя иногда простыми мелочами, проси радовать тебя меня и остальных — мы будем за!</p>
+          <p>Желаю оставаться такой же лёгкой в общении, открытой, с классным чувством юмора. Твои шутки всегда смешат или как минимум улыбают, это очень круто. 😁</p>
+          <p>Желаю оставаться стильной fancy-girl, подбирать прикольные, но в то же время простые образы со сложными сумочками. Ты очень классно выглядишь как на выходах, так и дома.</p>
+          <p>И просто желаю тебе быть собой, ведь ты и так самая лучшая.</p>
+          <p class="love">Я тебя очень сильно люблю. Нам всем с тобой очень сильно повезло!!! ❤️</p>
+        </div>
+        <button class="primary" id="celebrateBtn">И что же дальше? →</button>
+      </div>
+    </section>
+
+    <section class="screen" id="celebration">
+      <div class="celebration-card">
+        <div class="big-heart">♥</div>
+        <div class="flower-row">🌼 🌼 🌼</div>
+        <h1>С днём рождения,<br><span>Лада!</span></h1>
+        <p>Твой персональный житель Ромашковой долины</p>
+        <strong>Илья ❤️</strong>
+        <p class="gift-line">А теперь иди получать настоящий подарок 🎁</p>
+      </div>
+      <div id="confetti"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
