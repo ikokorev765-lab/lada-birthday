@@ -1,5 +1,41 @@
 const screens = [...document.querySelectorAll(".screen")];
 
+
+// =====================
+// МУЗЫКА
+// =====================
+const tracks = {
+  intro: new Audio("music/intro.mp3"),
+  quiz: new Audio("music/quiz.mp3"),
+  final: new Audio("music/final.mp3")
+};
+
+tracks.quiz.loop = true;
+tracks.intro.loop = true;
+tracks.final.loop = true;
+
+let soundEnabled = true;
+let currentTrack = null;
+
+function stopTrack(track) {
+  if (!track) return;
+  track.pause();
+  track.currentTime = 0;
+}
+
+function stopAllMusic() {
+  Object.values(tracks).forEach(stopTrack);
+  currentTrack = null;
+}
+
+function playTrack(name) {
+  if (!soundEnabled) return;
+  stopAllMusic();
+  currentTrack = tracks[name];
+  const promise = currentTrack.play();
+  if (promise && promise.catch) promise.catch(() => {});
+}
+
 const characters = {
   "Крош": {
     icon: "🐰",
@@ -148,7 +184,7 @@ function showScreen(id) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
-$("heartBtn").addEventListener("click", () => showScreen("password"));
+$("heartBtn").addEventListener("click", () => { playTrack("intro"); showScreen("password"); });
 
 $("passwordBtn").addEventListener("click", checkPassword);
 $("passwordInput").addEventListener("keydown", e => {
@@ -170,6 +206,8 @@ function checkPassword() {
 }
 
 $("startQuizBtn").addEventListener("click", () => {
+  stopTrack(tracks.intro);
+  playTrack("quiz");
   current = 0;
   score = 0;
   showScreen("quiz");
@@ -236,6 +274,8 @@ $("nextBtn").addEventListener("click", () => {
 });
 
 function showScore() {
+  stopTrack(tracks.quiz);
+  currentTrack = null;
   showScreen("score");
   const total = order.length;
   $("scoreTitle").textContent = `${score} из ${total}!`;
@@ -253,7 +293,10 @@ function showScore() {
   $("flowers").textContent = "🌼 ".repeat(Math.max(1, score));
 }
 
-$("finalBtn").addEventListener("click", () => showScreen("final"));
+$("finalBtn").addEventListener("click", () => {
+  playTrack("final");
+  showScreen("final");
+});
 
 $("celebrateBtn").addEventListener("click", () => {
   showScreen("celebration");
@@ -277,3 +320,18 @@ function makeConfetti() {
     box.appendChild(piece);
   }
 }
+
+const soundToggle = document.createElement("button");
+soundToggle.className = "sound-toggle";
+soundToggle.type = "button";
+soundToggle.textContent = "🔊";
+soundToggle.setAttribute("aria-label", "Включить или выключить звук");
+document.body.appendChild(soundToggle);
+
+soundToggle.addEventListener("click", () => {
+  soundEnabled = !soundEnabled;
+  soundToggle.textContent = soundEnabled ? "🔊" : "🔇";
+  if (!soundEnabled) {
+    stopAllMusic();
+  }
+});
